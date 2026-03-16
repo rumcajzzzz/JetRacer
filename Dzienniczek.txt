@@ -5,3 +5,7 @@
 
 16.03.2026 r.
 - Uruchomienie jetsona na własnej czystej karcie SD
+- Podgląd obrazu z kamery na laptopie, przesyłany przez wifi
+- utworzenie dzienniczka :)
+
+
