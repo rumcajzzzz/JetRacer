@@ -1,0 +1,7 @@
+10.03.2026 r. 
+- Uruchomienie jetsona na karcie SD, pozostawionej przez studentów po inżynierce
+- Połączenie jetsona z komputerem za pomocą wifi 
+- Napisanie kodu do sterowania JetRacerem za pomocą pada z Xboxa 360 połączonego z laptopem
+
+16.03.2026 r.
+- Uruchomienie jetsona na własnej czystej karcie SD
