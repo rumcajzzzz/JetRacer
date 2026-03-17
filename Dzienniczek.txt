@@ -9,5 +9,12 @@
 - utworzenie dzienniczka :)
 
 17.03.2026 r.
-- Rozłożenie toru i trenowanie modelu na datasecie 250 zdjęć tylko w jedną stronę (lewo) z opuszconą roletą
-- wytrenowanie modelu resnet18_20_epoch_right.pth, działa nawet nieźle ale tylko skręcając w prawo, 
+- Rozłożenie toru i trenowanie modelu na datasecie 250 zdjęć tylko w jedną stronę (prawo) z opuszczoną roletą bez sztucznego światła
+- wytrenowanie modelu resnet18_20_epoch_right.pth, działa nawet nieźle ale tylko skręcając w prawo ( patrzyliśmy na sucho tylko czy dobrze idetyfikuje środek toru na SAMYCH ZDJĘCIACH jeszcze nie jezdził)
+- Pierwsze udane odpalenie autonomicznego jeżdżenia po torze od waveshare, na modelu [resnet18_20_epoch_right_trt.pth] przy niskich prędkościach bardzo dokładnie śledzi środek toru [Throttle_GAIN=-0,4], maksymalna prędkość przy której nadal pozostawał na torze to [Throttle_GAIN=-0,85 ; Steering_GAIN = 1.0], chyba będziemy wstanie jechać szybciej zwiększając fps kamery. Niespodziewanie JetRacer mimo, że był trenowany tylko do skrętu w prawo był wstanie jezdzić również w lewo, ale wyraźniej gorzej radził sobie jeżdżąc w lewo. 
+
+TODO:
+- dołożenie do datasetu zdjęć z jazdy w lewą stronę oraz różnych warunkach oświetleniowych (jakaś inna sala niż seminaryjna, ewentualnie korytaż) 
+- wytrenowanie nowego modelu na nowym datasecie i testy
+- dodanie awaryjnego stopu na padzie 
+- dodanie wykrywania czarynych skarpet/butów i zatrzymanie go je wykryje
