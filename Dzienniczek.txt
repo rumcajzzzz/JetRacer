@@ -10,3 +10,4 @@
 
 17.03.2026 r.
 - Rozłożenie toru i trenowanie modelu na datasecie 250 zdjęć tylko w jedną stronę (lewo) z opuszconą roletą
+- wytrenowanie modelu resnet18_20_epoch_right.pth, działa nawet nieźle ale tylko skręcając w prawo, 
