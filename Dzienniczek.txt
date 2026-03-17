@@ -8,4 +8,5 @@
 - Podgląd obrazu z kamery na laptopie, przesyłany przez wifi
 - utworzenie dzienniczka :)
 
-
+17.03.2026 r.
+- Rozłożenie toru i trenowanie modelu na datasecie 250 zdjęć tylko w jedną stronę (lewo) z opuszconą roletą
