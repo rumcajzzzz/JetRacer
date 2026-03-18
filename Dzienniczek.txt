@@ -13,8 +13,15 @@
 - wytrenowanie modelu resnet18_20_epoch_right.pth, działa nawet nieźle ale tylko skręcając w prawo ( patrzyliśmy na sucho tylko czy dobrze idetyfikuje środek toru na SAMYCH ZDJĘCIACH jeszcze nie jezdził)
 - Pierwsze udane odpalenie autonomicznego jeżdżenia po torze od waveshare, na modelu [resnet18_20_epoch_right_trt.pth] przy niskich prędkościach bardzo dokładnie śledzi środek toru [Throttle_GAIN=-0,4], maksymalna prędkość przy której nadal pozostawał na torze to [Throttle_GAIN=-0,85 ; Steering_GAIN = 1.0], chyba będziemy wstanie jechać szybciej zwiększając fps kamery. Niespodziewanie JetRacer mimo, że był trenowany tylko do skrętu w prawo był wstanie jezdzić również w lewo, ale wyraźniej gorzej radził sobie jeżdżąc w lewo. 
 
+18.03.2026 r.
+- Dodanie sterowania padem w trakcie zbierania zdjęć do datasetu
+- Wykonanie osobnego datasetu (250 zdjęć) do skrętu w lewo (wykonane w innym oświetleniu na korytarzy przy s.221)
+- Stworzenie merged datasetu, który zawiera zdjęcia dla skrętu w lewo oraz w prawo
+- Nieudolna próba stworzenia skryptu do trenowania modeli lokalnie w celu przyspieszenia procesu uczenia (pomimo loss =< 0.001 pojazd nie nauczył się jeździć poprawnie nawet ucząc go jeździć tylko w jedną stronę)
+
 TODO:
-- dołożenie do datasetu zdjęć z jazdy w lewą stronę oraz różnych warunkach oświetleniowych (jakaś inna sala niż seminaryjna, ewentualnie korytaż) 
+- sprawdzenie czy skręcanie w lewo i prawo na osobnych pamięciach modeli (plik .pth) da pozytywny efekt (przemyśleć jak to w ogóle połączyć żeby on jeździł bez zatrzymywania programu w obie strony)
+- napisanie poprawnego kodu, który pozwoli na lokalne trenowanie i uczenie modeli (na dzień dzisiejszy nie działa poprawnie)
 - wytrenowanie nowego modelu na nowym datasecie i testy
 - dodanie awaryjnego stopu na padzie 
 - dodanie wykrywania czarynych skarpet/butów i zatrzymanie go je wykryje
