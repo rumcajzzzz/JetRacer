@@ -25,3 +25,6 @@ TODO:
 - wytrenowanie nowego modelu na nowym datasecie i testy
 - dodanie awaryjnego stopu na padzie 
 - dodanie wykrywania czarynych skarpet/butów i zatrzymanie go je wykryje
+- instalacja takich samych wersjii bibliotek na lapku jak na jetsonie zeby sprawdzic czy to nie jest problem
+- spytać Kacpra o wykorzystanie Dockera (sprawdzić jak to działa) (ze robimy dockera na lapku z takimi samymi wersjami wszystkiego jak na Jetsonie)
+- 
