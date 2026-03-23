@@ -20,11 +20,8 @@
 - Nieudolna próba stworzenia skryptu do trenowania modeli lokalnie w celu przyspieszenia procesu uczenia (pomimo loss =< 0.001 pojazd nie nauczył się jeździć poprawnie nawet ucząc go jeździć tylko w jedną stronę)
 
 TODO:
-- sprawdzenie czy skręcanie w lewo i prawo na osobnych pamięciach modeli (plik .pth) da pozytywny efekt (przemyśleć jak to w ogóle połączyć żeby on jeździł bez zatrzymywania programu w obie strony)
 - napisanie poprawnego kodu, który pozwoli na lokalne trenowanie i uczenie modeli (na dzień dzisiejszy nie działa poprawnie)
 - wytrenowanie nowego modelu na nowym datasecie i testy
 - dodanie awaryjnego stopu na padzie 
 - dodanie wykrywania czarynych skarpet/butów i zatrzymanie go je wykryje
 - instalacja takich samych wersjii bibliotek na lapku jak na jetsonie zeby sprawdzic czy to nie jest problem
-- spytać Kacpra o wykorzystanie Dockera (sprawdzić jak to działa) (ze robimy dockera na lapku z takimi samymi wersjami wszystkiego jak na Jetsonie)
-- 
