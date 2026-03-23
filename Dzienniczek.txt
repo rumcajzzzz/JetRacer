@@ -20,16 +20,18 @@
 - Nieudolna próba stworzenia skryptu do trenowania modeli lokalnie w celu przyspieszenia procesu uczenia (pomimo loss =< 0.001 pojazd nie nauczył się jeździć poprawnie nawet ucząc go jeździć tylko w jedną stronę)
 
 23.03.2026 r.
-- Dodanie START/STOP podczas autonomicznej jazdy JetRacera, 
+- Testowanie modeli wygenerowanych zdalnie (na laptopie), zakończone powodzeniem zarówno jak i modele trenowanie z datasetu lewoskrętnego jak i zmieszanego. 
 - Pierwsze udane odpalenie modelu wyuczonego na laptopie road_following_model_merged_0337t_tanh_norbert_laptop.pth
-- Odpalenie skryptu bezpośrednio z pliku .py ( nie ma potrzeby połączenia z wifi)
+- Dokładniejsza rewizja kodu i jego wpływu na import dla JetRacera
+- Dołożenie funkcjonalności kontrolera zewnętrznego w programie autonomicznej jazdy (AUTO, MANUAL, STOP)
+- Rozpoczęcie tworzenia nowego datasetu mieszanego, docelowo ok. 1000 próbek, zakończono na 500
+- Odpalenie skryptu bezpośrednio z pliku .py (nie ma potrzeby połączenia z wifi, jednak nie można przerwać działania skryptu bez połączenia)
 
 
 
 
 TODO:
-- napisanie poprawnego kodu, który pozwoli na lokalne trenowanie i uczenie modeli (na dzień dzisiejszy nie działa poprawnie)
-- wytrenowanie nowego modelu na nowym datasecie i testy
-- dodanie awaryjnego stopu na padzie 
-- dodanie wykrywania czarynych skarpet/butów i zatrzymanie go je wykryje
-- instalacja takich samych wersjii bibliotek na lapku jak na jetsonie zeby sprawdzic czy to nie jest problem
+- Dokończenie nowego datasetu
+- Dowiedzenie się czy problem z wolniejszym czasem reakcji Jetsona wynikał z połączenia sieciowego czy nieznanego nam problemu
+- Dokładniejsza analiza działania kategorii śledzenia trasy (apex, center, far-point, near-point)
+- Wytrenowanie nowego modelu na nowym datasecie i testy
