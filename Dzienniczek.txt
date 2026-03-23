@@ -19,6 +19,14 @@
 - Stworzenie merged datasetu, który zawiera zdjęcia dla skrętu w lewo oraz w prawo
 - Nieudolna próba stworzenia skryptu do trenowania modeli lokalnie w celu przyspieszenia procesu uczenia (pomimo loss =< 0.001 pojazd nie nauczył się jeździć poprawnie nawet ucząc go jeździć tylko w jedną stronę)
 
+23.03.2026 r.
+- Dodanie START/STOP podczas autonomicznej jazdy JetRacera, 
+- Pierwsze udane odpalenie modelu wyuczonego na laptopie road_following_model_merged_0337t_tanh_norbert_laptop.pth
+- Odpalenie skryptu bezpośrednio z pliku .py ( nie ma potrzeby połączenia z wifi)
+
+
+
+
 TODO:
 - napisanie poprawnego kodu, który pozwoli na lokalne trenowanie i uczenie modeli (na dzień dzisiejszy nie działa poprawnie)
 - wytrenowanie nowego modelu na nowym datasecie i testy
