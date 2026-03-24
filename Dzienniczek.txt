@@ -1,32 +1,39 @@
-10.03.2026 r. 
+10.03.2026 r. 3h
 - Uruchomienie jetsona na karcie SD, pozostawionej przez studentów po inżynierce
 - Połączenie jetsona z komputerem za pomocą wifi 
 - Napisanie kodu do sterowania JetRacerem za pomocą pada z Xboxa 360 połączonego z laptopem
 
-16.03.2026 r.
+16.03.2026 r. 3h
 - Uruchomienie jetsona na własnej czystej karcie SD
 - Podgląd obrazu z kamery na laptopie, przesyłany przez wifi
 - utworzenie dzienniczka :)
 
-17.03.2026 r.
+17.03.2026 r. 3h
 - Rozłożenie toru i trenowanie modelu na datasecie 250 zdjęć tylko w jedną stronę (prawo) z opuszczoną roletą bez sztucznego światła
 - wytrenowanie modelu resnet18_20_epoch_right.pth, działa nawet nieźle ale tylko skręcając w prawo ( patrzyliśmy na sucho tylko czy dobrze idetyfikuje środek toru na SAMYCH ZDJĘCIACH jeszcze nie jezdził)
 - Pierwsze udane odpalenie autonomicznego jeżdżenia po torze od waveshare, na modelu [resnet18_20_epoch_right_trt.pth] przy niskich prędkościach bardzo dokładnie śledzi środek toru [Throttle_GAIN=-0,4], maksymalna prędkość przy której nadal pozostawał na torze to [Throttle_GAIN=-0,85 ; Steering_GAIN = 1.0], chyba będziemy wstanie jechać szybciej zwiększając fps kamery. Niespodziewanie JetRacer mimo, że był trenowany tylko do skrętu w prawo był wstanie jezdzić również w lewo, ale wyraźniej gorzej radził sobie jeżdżąc w lewo. 
 
-18.03.2026 r.
+18.03.2026 r. 5h
 - Dodanie sterowania padem w trakcie zbierania zdjęć do datasetu
 - Wykonanie osobnego datasetu (250 zdjęć) do skrętu w lewo (wykonane w innym oświetleniu na korytarzy przy s.221)
 - Stworzenie merged datasetu, który zawiera zdjęcia dla skrętu w lewo oraz w prawo
 - Nieudolna próba stworzenia skryptu do trenowania modeli lokalnie w celu przyspieszenia procesu uczenia (pomimo loss =< 0.001 pojazd nie nauczył się jeździć poprawnie nawet ucząc go jeździć tylko w jedną stronę)
 
-23.03.2026 r.
+23.03.2026 r. 3h
 - Testowanie modeli wygenerowanych zdalnie (na laptopie), zakończone powodzeniem zarówno jak i modele trenowanie z datasetu lewoskrętnego jak i zmieszanego. 
 - Pierwsze udane odpalenie modelu wyuczonego na laptopie road_following_model_merged_0337t_tanh_norbert_laptop.pth
 - Dokładniejsza rewizja kodu i jego wpływu na import dla JetRacera
 - Dołożenie funkcjonalności kontrolera zewnętrznego w programie autonomicznej jazdy (AUTO, MANUAL, STOP)
 - Rozpoczęcie tworzenia nowego datasetu mieszanego, docelowo ok. 1000 próbek, zakończono na 500
 - Odpalenie skryptu bezpośrednio z pliku .py (nie ma potrzeby połączenia z wifi, jednak nie można przerwać działania skryptu bez połączenia)
+- Pod koniec dnia JetRacer przestał działać, duże opóźnienia w reakcji JetRacera uniemożliwiały poprawną jazdę autonomiczą, JetRacer przestał działać po dodaniu (AUTO, MANUAL, STOP)
 
+24.03.2026 r. 4h
+- udało się zdiagnozować, że problem leżał po stronie przepełnionego RAM-u
+- udało się wyczyścić RAM za pomocą komend:
+    sudo sh -c 'echo 3 > /proc/sys/vm/drop_caches' 
+    sudo systemctl set-default multi-user.target
+- na koniec testowaliśmy model 'rfm_merge1000_100e_0056t_norbert.pth' działał znacznie gorzej niż model 'resnet18_20_epoch_right_trt.pth', skręt w prawo wykonywał gorzej niż skręt w lewo.
 
 
 
