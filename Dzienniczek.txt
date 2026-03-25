@@ -35,10 +35,14 @@
     sudo systemctl set-default multi-user.target
 - na koniec testowaliśmy model 'rfm_merge1000_100e_0056t_norbert.pth' działał znacznie gorzej niż model 'resnet18_20_epoch_right_trt.pth', skręt w prawo wykonywał gorzej niż skręt w lewo.
 
+25.03.2026 r. 5h
+- udało sie odpalić program road_following z integracją kontrolera i zmianą trybów jazdy (AUTO, MANUAL, STOP). Program wykonywał się bez zauważalnych opóźnień pozwalając na komfortowe i BEZPIECZNE testowanie modelów
+- pierwsza próba odpalenia biblioteki YOLO i MobileNET, pierwsza próba wywołała problemy z wersjami paczek powodując znaczne utrudnienie w kontynuowaniu prac, szukanie błędnych wersji i nieodpowiednia praca środowiska Jupyter (python się restartował po odpaleniu komórki z błędną paczką/importem, kernela wywalało). Kamera również nie pracowała w sposób odpowiedni ze względu na zaktualizowanie się OpenCV. Wszelkie problemy zostały zdiagnozowane i naprawione.
+- Udana próba odpalenia kodu na detekcję obiektów na CPU, co prawda praca na CPU nie pozwala na rzeczywistą detekcję i wykonywanie zadania road_following więc również odpaliliśmy kod z modelem trt gdzie kod pracował płynnie co będziemy testować i łączyć z modelem jazdy, aby uzyskać detekcję i omijanie przeszkód wraz z śledzeniem drogi.
 
 
 TODO:
-- Dokończenie nowego datasetu
-- Dowiedzenie się czy problem z wolniejszym czasem reakcji Jetsona wynikał z połączenia sieciowego czy nieznanego nam problemu
+- Integracja modelu jazdy z detekcją/omijaniem
+- Dokończenie nowego datasetu 
 - Dokładniejsza analiza działania kategorii śledzenia trasy (apex, center, far-point, near-point)
 - Wytrenowanie nowego modelu na nowym datasecie i testy
