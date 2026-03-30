@@ -41,11 +41,15 @@
 - Udana próba odpalenia kodu na detekcję obiektów na CPU, co prawda praca na CPU nie pozwala na rzeczywistą detekcję i wykonywanie zadania road_following więc również odpaliliśmy kod z modelem trt gdzie kod pracował płynnie co będziemy testować i łączyć z modelem jazdy, aby uzyskać detekcję i omijanie przeszkód wraz z śledzeniem drogi.
 
 30.03.2026 r. 3h
+- Postawienie środowiska Docker na Jetsonie, izolacja bibliotek, żeby przestać walczyć z wywalającym się Kernelem Jupytera i konfliktami wersji szczególnie przy OpenCV.
+- Konfiguracja wolumenów w JetRacerze, nie mozna bylo zainstalowac Dockera ze wzgledu na brak poprawnego podziału partycji karty SD (wykorzystywane tylko 32gb zamiast 128gb).
+- Wybór modelu YOLOv4-tiny-288 jako najsprawniejszego na naszego jetsona (dobry fps i mAP)
+- Instalacja PyCUDA, bez tego yolo nie bedzie w stanie komunikowac sie z jetsonem, ktory zwyklym torch2trt nie da rady interpretowac bardziej skomplikowanej struktury warstw yolo.
 - Zaprojektowanie pachołków w AutoDesk Fusion
 - odpalenie YOLO v4-tiny z OPENCV 4.5.3.56 na laptopie, i wstępne napisanie kodu który wykrywa cell_phone z COCO i wypisuje w jakiej odległości od środka ekrnu się
 znajduje, (przyda się do omijania przeszkód).
 - odpalenie YOLO v4-tiny z OPENCV 4.1.2 nie działa na laptopie, możliwe że zadziała na Jetsonie gdy będziemy odpalać YOLO v4-tiny z TENSOREM zamiast OPENCV
-
+- stworzenie środo
 
 TODO:
 - Integracja modelu jazdy z detekcją/omijaniem
