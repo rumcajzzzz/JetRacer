@@ -40,6 +40,12 @@
 - pierwsza próba odpalenia biblioteki YOLO i MobileNET, pierwsza próba wywołała problemy z wersjami paczek powodując znaczne utrudnienie w kontynuowaniu prac, szukanie błędnych wersji i nieodpowiednia praca środowiska Jupyter (python się restartował po odpaleniu komórki z błędną paczką/importem, kernela wywalało). Kamera również nie pracowała w sposób odpowiedni ze względu na zaktualizowanie się OpenCV. Wszelkie problemy zostały zdiagnozowane i naprawione.
 - Udana próba odpalenia kodu na detekcję obiektów na CPU, co prawda praca na CPU nie pozwala na rzeczywistą detekcję i wykonywanie zadania road_following więc również odpaliliśmy kod z modelem trt gdzie kod pracował płynnie co będziemy testować i łączyć z modelem jazdy, aby uzyskać detekcję i omijanie przeszkód wraz z śledzeniem drogi.
 
+30.03.2026 r. 3h
+- Zaprojektowanie pachołków w AutoDesk Fusion
+- odpalenie YOLO v4-tiny z OPENCV 4.5.3.56 na laptopie, i wstępne napisanie kodu który wykrywa cell_phone z COCO i wypisuje w jakiej odległości od środka ekrnu się
+znajduje, (przyda się do omijania przeszkód).
+- odpalenie YOLO v4-tiny z OPENCV 4.1.2 nie działa na laptopie, możliwe że zadziała na Jetsonie gdy będziemy odpalać YOLO v4-tiny z TENSOREM zamiast OPENCV
+
 
 TODO:
 - Integracja modelu jazdy z detekcją/omijaniem
