@@ -1,0 +1,119 @@
+1. Potrzebny jest dataset wraz z zlabelowanymi zdjęciami (image.png, image.txt)
+najlepiej bedzie skorzystać z YOLO-Label: https://github.com/developer0hye/Yolo_Label?tab=readme-ov-file
+
+2.Tworzymy jakiś folder np. yolo_projekt, wrzucamy do niego:
+- folder images (image.png, image.txt)
+- pllik obj.names z nazwami labeli (każdy w nowej linii)
+- plik obj.data. który wygląda tak:
+	classes = 2 #tutaj liczba klas ktore bedą, u nas pewnie 2 (przeszkoda, znak stopu)
+	train = data/train.txt
+	valid = data/train.txt
+	names = data/obj.names
+	backup = /content/drive/MyDrive/yolo_projekt/backup
+-pusty folder backup, tam beda zapisywane wagi (.weights)
+
+
+
+2.5. Potrzebujemy pliku .cfg do yolov4, można go pobrać tutaj:
+https://raw.githubusercontent.com/AlexeyAB/darknet/master/cfg/yolov4-tiny.cfg
+-zmieniamy parametry:
+	width = 224 (bo tyle maja nasze zdjecia z jetracera)
+	heigth = 224
+	max_batches = classes * 2000 (nie mniej niż 6000)
+	steps = 0.8 (0.9) * max_batches
+	classes = ilość wykorzystywanych klas (2) <-- zmieniamy to w sekcji [convoutional] nad każdą sekcją [yolo]
+	filters = (classes + 5) * 3
+
+-wrzucamy ten plik do folderu yolo_projekt
+-po edycji zmianiamy nazwę na jakąś inną np.: yolov4-tiny-custom.cfg
+-bedzie trzeba podać ścieżke do niego potem w Colabie
+
+
+
+3. Uczenie robimy w Google Colab:
+- wrzucamy ten folder w p.2 do drive'a
+-nowy notatnik w Colabie, łączymy Drive z Colabem:
+	from google.colab import drive
+	drive.mount('/content/drive')
+
+	!git clone https://github.com/AlexeyAB/darknet
+	%cd darknet
+	# Włączamy GPU i OpenCV w ustawieniach kompilacji
+	!sed -i 's/GPU=0/GPU=1/g' Makefile
+	!sed -i 's/CUDNN=0/CUDNN=1/g' Makefile
+	!sed -i 's/OPENCV=0/OPENCV=1/g' Makefile
+	!make
+
+-Kopiujemy pliki do Colaba:
+	# Kopiujemy zdjęcia i konfigurację z Twojego Drive do folderu roboczego
+	!cp -r /content/drive/MyDrive/yolo_projekt/images/ data/obj/
+	!cp /content/drive/MyDrive/yolo_projekt/obj.names data/
+	!cp /content/drive/MyDrive/yolo_projekt/obj.data data/
+
+	# Generujemy plik train.txt (spis wszystkich zdjęć)
+	import os
+	with open("data/train.txt", "w") as f:
+  	  for file in os.listdir("data/obj"):
+  	      if file.endswith(".jpg"):
+ 	           f.write("data/obj/" + file + "\n")
+
+-wrzucamy plik .cfg do folderu cfg/ w Colabie
+- pobieramy pretrained plik z conv zeby przyspieszyc proces:
+	!wget https://github.com/AlexeyAB/darknet/releases/download/darknet_yolo_v4_pre/yolov4-tiny.conv.29
+
+-startujemy trening: !./darknet detector train data/obj.data cfg/yolov4-tiny-custom.cfg yolov4-tiny.conv.29 -dont_show -map
+
+4. Po wyuczeniu w folderze backup powinny byc pliki z wagami, który wklejamy do kodu python już nie na Colabie, iykyk
+- przykładowy kod z Gemini:
+
+import cv2
+import numpy as np
+
+# 1. Wczytanie modelu
+net = cv2.dnn.readNetFromDarknet('yolov4-tiny-custom.cfg', 'yolov4-tiny-custom_last.weights')
+net.setPreferableBackend(cv2.dnn.DNN_BACKEND_CUDA) # Opcjonalne, jeśli masz GPU
+net.setPreferableTarget(cv2.dnn.DNN_TARGET_CUDA)
+
+# 2. Pobranie nazw klas
+with open("obj_names.txt", "r") as f:
+    classes = [line.strip() for line in f.readlines()]
+
+cap = cv2.VideoCapture(0)
+
+while True:
+    _, frame = cap.read()
+    h, w, _ = frame.shape
+
+    # Przygotowanie obrazu dla sieci (blob)
+    blob = cv2.dnn.blobFromImage(frame, 1/255, (224, 224), (0,0,0), swapRB=True, crop=False)
+    net.setInput(blob)
+    
+    # Pobranie wyników
+    output_layers = net.getUnconnectedOutLayersNames()
+    layer_outputs = net.forward(output_layers)
+
+    for output in layer_outputs:
+        for detection in output:
+            scores = detection[5:]
+            class_id = np.argmax(scores)
+            confidence = scores[class_id]
+
+            if confidence > 0.5: # Próg pewności
+                # Obliczanie współrzędnych ramki
+                center_x = int(detection[0] * w)
+                center_y = int(detection[1] * h)
+                width = int(detection[2] * w)
+                height = int(detection[3] * h)
+                x = int(center_x - width / 2)
+                y = int(center_y - height / 2)
+
+                # RYSOWANIE ZIELONEGO LABELA
+                cv2.rectangle(frame, (x, y), (x + width, y + height), (0, 255, 0), 2)
+                label = f"{classes[class_id]}: {confidence:.2f}"
+                cv2.putText(frame, label, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
+
+    cv2.imshow("Kamera YOLO", frame)
+    if cv2.waitKey(1) == 27: break # ESC zamyka
+
+cap.release()
+cv2.destroyAllWindows()
