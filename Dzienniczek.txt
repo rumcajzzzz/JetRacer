@@ -53,12 +53,21 @@ znajduje, (przyda się do omijania przeszkód).
 
 31.03.2026 r. 5h
 - Zrezygnowanie z dockera
-- Zaimplementowanie korzystania z modelu yolo w takiej samej logice jak w road_following czyli wgranie modelu wytrenowanego w zewnętrznym środowisku i załadowanie go w jupyterze na jetsonie. W tym przypadku skorzystaliśmy z typu .onnx, czyli musielismy pobrac na jetsona dodatkowo interpreter onnx w wersji 1.11.0
+- Zaimplementowanie korzystania z modelu yolo w takiej 
+samej logice jak w road_following czyli wgranie modelu wytrenowanego w zewnętrznym środowisku i załadowanie go w jupyterze na jetsonie. W tym przypadku skorzystaliśmy z typu .onnx, czyli musielismy pobrac na jetsona dodatkowo interpreter onnx w wersji 1.11.0
 - Zostal przetestowany model z detekcja okolo 90 różnych obiektow, na potrzeby projektu skoncentrowalismy wykrywanie tylko i wylacznie na obiekcie 'person' ze wzgledu na dostarczone od opiekuna 'ludziki' 3D. JetRacer byl w stanie wykrywac w czasie rzeczywistym figurki i rysowac wokol nich prostokat co pozwoliło nam zaimplementowac algorytm skretu kol zeby ominac obiekt znajdujacy sie na trasie JetRacera. 
 - Optymalizacja kodu zakonczona sukcesem, znaczny przyrost przetwarzanych klatek (5-8fps => 15-20fps)
+
+01.04.2026 r. 5h
+-początkowy problem z zapisem notebooka w Jupiterze; okazało się, że problemem było korzystanie z internetu w telefonie połączonym po kablu do laptopa
+-MAJOR ISSUE: jetracer po próbach odpalania go w konfiguracji road_following + YOLO v4_tiny przestał działać. Po wielu próbach, reinstalacji paczek itd ustalono, że Jetson crashuje w momencie, w którym musi wykorzystać
+serwomechanizm w trakcie jazdy (podczas odpalonej detekcji YOLO). Prawdopodobnie doszło do uszkodzenia serwa; możliwa wymiana serwa na nowe...
+
+
 
 TODO:
 - Integracja modelu jazdy z detekcją/omijaniem
 - Dokończenie nowego datasetu 
 - Dokładniejsza analiza działania kategorii śledzenia trasy (apex, center, far-point, near-point)
 - Wytrenowanie nowego modelu na nowym datasecie i testy
+- Nowo wydrukowane przeszkody (pachołki) zlabelować i przetestować po uprzedniej naprawie obecnych problemów
