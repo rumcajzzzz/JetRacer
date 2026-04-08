@@ -63,7 +63,12 @@ samej logice jak w road_following czyli wgranie modelu wytrenowanego w zewnętrz
 -MAJOR ISSUE: jetracer po próbach odpalania go w konfiguracji road_following + YOLO v4_tiny przestał działać. Po wielu próbach, reinstalacji paczek itd ustalono, że Jetson crashuje w momencie, w którym musi wykorzystać
 serwomechanizm w trakcie jazdy (podczas odpalonej detekcji YOLO). Prawdopodobnie doszło do uszkodzenia serwa; możliwa wymiana serwa na nowe...
 
-
+08.04.2026 3h
+- Test na swiezo JetRacera roznych programow i dwoch kart SD jak i trybow (5W i MAXN), wniosek taki, że tylko i wylacznie serwomechanizm powodował zwarcia Jetsona. Została rozkrecona platforma w celu odłączenia serwo i testu bez niego czy pgoramy sie odpalaja, testy zakonczone pozytywnie serwomechanizm powodowal jakiekolwiek zwarcia/nieprzewidywalne zachowania. 
+- Podpiecie SG90 pod wtyczke oryginalnego serwa i normalnie dzialalo wszystko. 
+- Serwo JetRacera zostalo zewnetrznie zasilone i PWM z Arduino nie bylo w stanie ruszyc mechaniznmem.
+- Zebranie datasetu na obiekt Pacholek.
+- Zakup nowego serwa MG966R 180*. 
 
 TODO:
 - Integracja modelu jazdy z detekcją/omijaniem
