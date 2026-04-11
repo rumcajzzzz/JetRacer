@@ -49,10 +49,10 @@
 - odpalenie YOLO v4-tiny z OPENCV 4.5.3.56 na laptopie, i wstępne napisanie kodu który wykrywa cell_phone z COCO i wypisuje w jakiej odległości od środka ekrnu się
 znajduje, (przyda się do omijania przeszkód).
 - odpalenie YOLO v4-tiny z OPENCV 4.1.2 nie działa na laptopie, możliwe że zadziała na Jetsonie gdy będziemy odpalać YOLO v4-tiny z TENSOREM zamiast OPENCV
-- stworzenie środo
 
 31.03.2026 r. 5h
 - Zrezygnowanie z dockera
+- Wykorzystanie repo https://github.com/tianxiaomo/pytorch-yolov4 [skrypt darknet2onyx] do konwersji modelu YOLO4-tiny (pliki .cfg .weights) na model .onyx potrzeby do uruchomienia YOLO na Jetsonie.
 - Zaimplementowanie korzystania z modelu yolo w takiej 
 samej logice jak w road_following czyli wgranie modelu wytrenowanego w zewnętrznym środowisku i załadowanie go w jupyterze na jetsonie. W tym przypadku skorzystaliśmy z typu .onnx, czyli musielismy pobrac na jetsona dodatkowo interpreter onnx w wersji 1.11.0
 - Zostal przetestowany model z detekcja okolo 90 różnych obiektow, na potrzeby projektu skoncentrowalismy wykrywanie tylko i wylacznie na obiekcie 'person' ze wzgledu na dostarczone od opiekuna 'ludziki' 3D. JetRacer byl w stanie wykrywac w czasie rzeczywistym figurki i rysowac wokol nich prostokat co pozwoliło nam zaimplementowac algorytm skretu kol zeby ominac obiekt znajdujacy sie na trasie JetRacera. 
