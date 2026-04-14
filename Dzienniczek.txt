@@ -70,9 +70,13 @@ serwomechanizm w trakcie jazdy (podczas odpalonej detekcji YOLO). Prawdopodobnie
 - Zebranie datasetu na obiekt Pacholek.
 - Zakup nowego serwa MG966R 180*. 
 
+13.04.2026 r. 3h
+- Rozkręcenie JetRacera i wymiana serwomechanizmu na nowy MG996R, testy i ponowna konfiguracja 
+- labeling 120 zdjęć pachołków 
+- pierwsze próby dotrenowania YOLOv4-tiny z obiektem "pacholek"
+
 TODO:
 - Integracja modelu jazdy z detekcją/omijaniem
 - Dokończenie nowego datasetu 
 - Dokładniejsza analiza działania kategorii śledzenia trasy (apex, center, far-point, near-point)
 - Wytrenowanie nowego modelu na nowym datasecie i testy
-- Nowo wydrukowane przeszkody (pachołki) zlabelować i przetestować po uprzedniej naprawie obecnych problemów
