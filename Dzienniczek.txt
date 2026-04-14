@@ -75,6 +75,11 @@ serwomechanizm w trakcie jazdy (podczas odpalonej detekcji YOLO). Prawdopodobnie
 - labeling 120 zdjęć pachołków 
 - pierwsze próby dotrenowania YOLOv4-tiny z obiektem "pacholek"
 
+14.04.2026 r. 4h
+- Trening YOLO na datasecie pachołków
+- Udane uruchomienie wytrenowanego modelu YOLOv4-tiny na Jestonie i wykrywanie pachołków 
+- Pierwsze uruchomienie kodu który wykorzystywał do jazdy 2 modele: Road Following i wykrywanie pachołków
+
 TODO:
 - Integracja modelu jazdy z detekcją/omijaniem
 - Dokończenie nowego datasetu 
