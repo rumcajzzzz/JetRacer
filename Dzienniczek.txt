@@ -80,8 +80,9 @@ serwomechanizm w trakcie jazdy (podczas odpalonej detekcji YOLO). Prawdopodobnie
 - Udane uruchomienie wytrenowanego modelu YOLOv4-tiny na Jestonie i wykrywanie pachołków 
 - Pierwsze uruchomienie kodu który wykorzystywał do jazdy 2 modele: Road Following i wykrywanie pachołków
 
-TODO:
-- Integracja modelu jazdy z detekcją/omijaniem
-- Dokończenie nowego datasetu 
-- Dokładniejsza analiza działania kategorii śledzenia trasy (apex, center, far-point, near-point)
-- Wytrenowanie nowego modelu na nowym datasecie i testy
+15.04.2026 r. 5h
+- Rozwiązanie problemu poprawnego omijania pachołka, jakie ma dostawać serwo sygnały sterowania, wyznaczane sa na podstawie dynamicznej linii środka, nastawianej przez sygnał road_following i mnoznik k_lane
+- Fuzja algorytmów road_following i detekcji w celu uzyskania prawidłowego sygnału sterowania do omijania pachołków z dobrej strony (pozostając na planszy)
+- Zmiana modelu road_following na road_following_model_merged_0337t_tanh_norbert_laptop, jetracer zaczal jezdzic plynniej, natomaist nadal sa napotykane problemy z oswietleniem
+- Wrzucone na githuba dwa działające poprawnie notebooki (z throttle control i bez), 
+- zapisanie wersji pobranych paczek na jetsonie (requirements.txt w folderze 'bin') jak i wersje software'u jetsona (wersja_jetpack.txt)
