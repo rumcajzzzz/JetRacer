@@ -86,3 +86,11 @@ serwomechanizm w trakcie jazdy (podczas odpalonej detekcji YOLO). Prawdopodobnie
 - Zmiana modelu road_following na road_following_model_merged_0337t_tanh_norbert_laptop, jetracer zaczal jezdzic plynniej, natomaist nadal sa napotykane problemy z oswietleniem
 - Wrzucone na githuba dwa działające poprawnie notebooki (z throttle control i bez), 
 - zapisanie wersji pobranych paczek na jetsonie (requirements.txt w folderze 'bin') jak i wersje software'u jetsona (wersja_jetpack.txt)
+
+20.04.2026 r. 3h
+- próby implementacji STOP na niebieskich pachołkach
+- drukowanie czarnych pachołków
+
+21.04.2026 r. 
+- zrobienie dataset czarnych pachołków i labeling ich
+- wyuczenie modelu dla czarnych i niebieskich pachołków
