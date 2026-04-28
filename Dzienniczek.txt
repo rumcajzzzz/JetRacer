@@ -91,6 +91,14 @@ serwomechanizm w trakcie jazdy (podczas odpalonej detekcji YOLO). Prawdopodobnie
 - próby implementacji STOP na niebieskich pachołkach
 - drukowanie czarnych pachołków
 
-21.04.2026 r. 
+21.04.2026 r. 3h
 - zrobienie dataset czarnych pachołków i labeling ich
 - wyuczenie modelu dla czarnych i niebieskich pachołków
+
+27.04.2026 r. 
+- testy modelu wykrywającego 2 klasy pachołków niebieskie (avoid), czarne (stop), poprawnie rysował bbox na obu klasach
+- próby autnomicznej jazdy i omijania pachołków na nowym modelu, jetracer jezdził bardzo słabo
+- trenowanie nowych modeli 1000, 2000, 6000 iteracji
+
+28.04.2026 r.
+
