@@ -100,5 +100,11 @@ serwomechanizm w trakcie jazdy (podczas odpalonej detekcji YOLO). Prawdopodobnie
 - próby autnomicznej jazdy i omijania pachołków na nowym modelu, jetracer jezdził bardzo słabo
 - trenowanie nowych modeli 1000, 2000, 6000 iteracji
 
-28.04.2026 r.
+28.04.2026 r. 5h
+- dzialajacy w pelni kod nadajacy sie do zdania projektu przejsciowego w pliku /notebooks/rfm_od_dwaklasy.ipynb, /training/models/object_detection/yolov4_1_3_224_224_dwapacholky, /training/models/road_following/road_following_model_merged_0337t_tanh_norbert_laptop, kod radzi sobie niezle, omija przeszkody i poprawnie realizuje zadanie stopu,
+- kompletny backup karty JetRacera
 
+04.05.2026 r. 
+- wyklejenie nowej trasy po drugiej stronie planszy (kolor czerwony taśmy rfm)
+- zebranie datasetu do jazdy na czerwonym (250 zdjec; lewo+prawo)
+- wyuczenie nowego modelu rfm (nie jest w stanie skrecic tak mocno jak mamy tor wiec wprowadzamy korekte softowa zanim zaczniemy modyfikowac tor)
