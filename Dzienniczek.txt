@@ -108,3 +108,14 @@ serwomechanizm w trakcie jazdy (podczas odpalonej detekcji YOLO). Prawdopodobnie
 - wyklejenie nowej trasy po drugiej stronie planszy (kolor czerwony taśmy rfm)
 - zebranie datasetu do jazdy na czerwonym (250 zdjec; lewo+prawo)
 - wyuczenie nowego modelu rfm (nie jest w stanie skrecic tak mocno jak mamy tor wiec wprowadzamy korekte softowa zanim zaczniemy modyfikowac tor)
+- lekka korekta wyklejonego toru, wygładzenie zakrętów
+
+05.05.2026 r.
+- zmiana wi-fi do którego podłączony jest Jetson, (nie takie proste gdy jest wyłączony pulpit) wykorzystaliśmy komunikacje szeregową z laptopem, program PuTTy
+- głównie testy jazdy na nowej planszy, utworzenie notebooka do debuggu
+- JetRacer podąża stabilnie po wyklejonej planszy bez przeszkód, w obie strony, mógłby jezdzić bardziej płynnie, miejscami sterowanie szarpane 
+- Stop na czarnym pachółku działa bardzo dobrze
+- Po dodaniu pochołków jeździ bardzo niestablinie, rzadko po ominięciu wraca poprawnie na tor jazdy
+
+TODO:
+- nowy model do jeżdżenia po planszy, tym razem skupiamy sie bardziej na przewidywaniu, zaznaczamy miejsce docelowa bardzej oddalone 
